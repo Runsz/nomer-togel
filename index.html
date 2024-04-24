@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nomer Togel</title>
+  </head>
+  <body>
+    <h1>Tebak 4 angka yang akan muncul</h1>
+    <label for="">Masukkan 4 angka</label>
+    <input id="input" type="number" />
+    <button onclick="uji()">Kirim</button>
+    <div id="output"></div>
+
+    <h1>Tebak 2 angka yang akan muncul</h1>
+    <label for="">Masukkan 2 angka</label>
+    <input id="input2" type="number" />
+    <button onclick="tes()">Kirim</button>
+    <div id="output2"></div>
+    <script>
+      let ri, ra, pu, sa, forth, sec;
+
+      function uji() {
+        let val = document.getElementById("input").value;
+        let str = val.toString();
+        let i = 0;
+        if (str.length != 4) {
+          window.alert("angka harus 4 digit");
+        } else {
+          generate();
+          function generate() {
+            ri = Math.floor(Math.random() * 10);
+            ra = Math.floor(Math.random() * 10);
+            pu = Math.floor(Math.random() * 10);
+            sa = Math.floor(Math.random() * 10);
+            forth = ri + "" + ra + "" + pu + "" + sa;
+          }
+          if (val == forth) {
+            document.getElementById("output").innerHTML =
+              "Angka anda = " +
+              val +
+              "<br> Angka Sistem = " +
+              forth +
+              "<br>Selamat tebakan anda benar";
+          } else {
+            document.getElementById("output").innerHTML =
+              "Angka anda = " +
+              val +
+              "<br> Angka Sistem = " +
+              forth +
+              "<br>Yahh tebakan anda salah";
+          }
+        }
+      }
+
+      function tes() {
+        let valsec = document.getElementById("input2").value;
+        let str2 = valsec.toString();
+        let i = 0;
+        if (str2.length != 2) {
+          window.alert("angka harus 2 digit");
+        } else {
+          generate();
+          function generate() {
+            pu = Math.floor(Math.random() * 10);
+            sa = Math.floor(Math.random() * 10);
+            sec = pu + "" + sa;
+          }
+          if (valsec == sec) {
+            document.getElementById("output2").innerHTML =
+              "Angka anda = " +
+              valsec +
+              "<br> Angka Sistem = " +
+              sec +
+              "<br>Selamat tebakan anda benar";
+          } else {
+            document.getElementById("output2").innerHTML =
+              "Angka anda = " +
+              valsec +
+              "<br> Angka Sistem = " +
+              sec +
+              "<br>Yahh tebakan anda salah";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
